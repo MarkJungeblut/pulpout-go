@@ -1,0 +1,33 @@
+{
+  "_id": "",
+  "names": [
+    {
+      "language_id": "DE",
+      "name": ""
+    },
+    {
+      "language_id": "EN",
+      "name": ""
+    }
+  ],
+  "descriptions": [
+    {
+      "language_id": "DE",
+      "description": ""
+    },
+    {
+      "language_id": "EN",
+      "description": ""
+    }
+  ],
+  "createdAt": "",
+  "updatedAt": "",
+  "muscles": [],
+  "musclesSecondary": [],
+  "equipment": [],
+  "variations": [
+    {
+      "exercise_id": ""
+    }
+  ]
+}
