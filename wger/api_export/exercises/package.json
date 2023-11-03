@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/node": "^20.8.10"
+  },
+  "dependencies": {
+    "fp-ts": "^2.16.1"
   }
 }
