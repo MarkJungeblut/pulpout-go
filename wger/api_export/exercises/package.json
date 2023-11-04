@@ -3,6 +3,8 @@
     "@types/node": "^20.8.10"
   },
   "dependencies": {
-    "fp-ts": "^2.16.1"
+    "fp-ts": "^2.16.1",
+    "io-ts": "^2.2.20",
+    "io-ts-types": "^0.5.19"
   }
 }

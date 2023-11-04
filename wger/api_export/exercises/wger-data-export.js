@@ -31,9 +31,69 @@ const export3 = __importStar(require("./exercises_300-400.json"));
 const fs = __importStar(require("fs"));
 const function_1 = require("fp-ts/function");
 const fp_ts_1 = require("fp-ts");
+const io_ts_types_1 = require("io-ts-types");
+const getMuscleGroups = () => {
+    return [
+        {
+            id: 0,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Arms'
+                }
+            ]
+        },
+        {
+            id: 1,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Legs'
+                }
+            ]
+        },
+        {
+            id: 2,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Chest'
+                }
+            ]
+        },
+        {
+            id: 3,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Abs'
+                }
+            ]
+        },
+        {
+            id: 4,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Back'
+                }
+            ]
+        },
+        {
+            id: 5,
+            names: [
+                {
+                    languageId: 'EN',
+                    name: 'Shoulder'
+                }
+            ]
+        },
+    ];
+};
 const buildFullExercises = (fullExport) => {
     const exercises = fullExport.map((result) => {
         return result.exercises.filter((exercise) => exercise.language === 2).map((exercise) => {
+            const muscleGroups = getMuscleGroups();
             return {
                 id: exercise.id,
                 name: exercise.name,
@@ -52,9 +112,7 @@ const buildFullExercises = (fullExport) => {
                         ...equipment
                     };
                 }),
-                muscleGroup: {
-                    ...result.category
-                }
+                muscleGroup: muscleGroups.find((muscleGroup) => muscleGroup.names.find((muscleNameItem) => muscleNameItem.name.startsWith(result.category.name)))
             };
         });
     });
@@ -67,6 +125,7 @@ const buildMuscles = (fullExport) => {
     return (0, function_1.pipe)(fullExport, fp_ts_1.array.chain((result) => {
         return result.muscles.concat(result.muscles_secondary);
     }), fp_ts_1.array.map((muscle) => {
+        setEnglishMuscleName(muscle);
         return {
             ...muscle,
             image_url_main: `https://wger.de${muscle.image_url_main}`,
@@ -74,12 +133,15 @@ const buildMuscles = (fullExport) => {
         };
     }), fp_ts_1.array.uniq(exports.idEq), fp_ts_1.array.sort((0, function_1.pipe)(fp_ts_1.number.Ord, fp_ts_1.ord.contramap((muscle) => muscle.id))));
 };
+const setEnglishMuscleName = (muscle) => {
+    muscle.name_en = (0, function_1.pipe)(muscle.name_en, io_ts_types_1.NonEmptyString.decode, fp_ts_1.either.getOrElse(() => muscle.name));
+};
 const buildEquipment = (fullExport) => {
     return (0, function_1.pipe)(fullExport, fp_ts_1.array.chain((result) => {
         return result.equipment;
     }), fp_ts_1.array.uniq(exports.idEq), fp_ts_1.array.sort((0, function_1.pipe)(fp_ts_1.number.Ord, fp_ts_1.ord.contramap((equipment) => equipment.id))));
 };
-const buildMuscleGroups = (fullExport) => {
+const buildMuscleGroupsWger = (fullExport) => {
     return (0, function_1.pipe)(fullExport, fp_ts_1.array.map((result) => {
         return result.category;
     }), fp_ts_1.array.uniq(exports.idEq), fp_ts_1.array.sort((0, function_1.pipe)(fp_ts_1.number.Ord, fp_ts_1.ord.contramap((muscleGroup) => muscleGroup.id))));
@@ -92,7 +154,9 @@ const buildExport = () => {
     fs.writeFileSync('./muscles.json', JSON.stringify(muscles));
     const equipment = buildEquipment(fullExport);
     fs.writeFileSync('./equipment.json', JSON.stringify(equipment));
-    const muscleGroups = buildMuscleGroups(fullExport);
+    const muscleGroups = getMuscleGroups();
     fs.writeFileSync('./muscle-groups.json', JSON.stringify(muscleGroups));
+    const muscleGroupsWger = buildMuscleGroupsWger(fullExport);
+    fs.writeFileSync('./muscle-groups-wger.json', JSON.stringify(muscleGroupsWger));
 };
 buildExport();
