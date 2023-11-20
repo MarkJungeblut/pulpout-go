@@ -1,4 +1,4 @@
-package entities
+package exercises
 
 type ExerciseName struct {
 	LanguageId string `json:"language_id"`

@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/eapache/go-resiliency/retrier"
+	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	. "pulpout.com/database"
+	. "pulpout.com/exercises"
 	"time"
 )
 
@@ -25,8 +27,13 @@ func main() {
 	}
 
 	doSomething(database)
+
+	router := gin.Default()
+	router.GET("/exercises", GetExercises)
+
+	_ = router.Run("localhost:8080")
 }
 
 func doSomething(database *mongo.Database) {
-
+	fmt.Print("Connected to database :)")
 }

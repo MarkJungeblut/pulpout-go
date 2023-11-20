@@ -1,4 +1,4 @@
-package entities
+package equipment
 
 type Equipment struct {
 	ID    string          `json:"_id"`

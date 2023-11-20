@@ -1,4 +1,4 @@
-package entities
+package muscles
 
 type MuscleGroup struct {
 	ID        int               `json:"_id"`

@@ -1,4 +1,4 @@
-package entities
+package muscles
 
 type MuscleGroupName struct {
 	LanguageId string `json:"language_id"`
