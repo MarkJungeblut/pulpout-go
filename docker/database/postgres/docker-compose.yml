@@ -1,14 +1,5 @@
 version: '3.9'
 services:
-  flyway:
-    image: flyway/flyway
-    command: -url=jdbc:postgresql://localhost:5432/pulpout -user=pulpout -password=pulpout -connectRetries=60 migrate
-    volumes:
-      - .:/flyway/sql
-    depends_on:
-      - db
-    network_mode: "host"
-
   db:
     image: postgres:latest
     restart: always
