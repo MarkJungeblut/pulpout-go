@@ -11,7 +11,7 @@ INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Halbmembranöser
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Gesäßmuskel', 'Musculus gluteus maximus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Mittlerer Gesäßmuskel', 'Musculus gluteus medius', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Kleiner Gesäßmuskel', 'Musculus gluteus minimus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Adduktorengruppe', 'Musculi adductores', (SELECT id FROM muscle_group WHERE name = 'Beinmuskeln'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Adduktorengruppe', 'Musculi adductores', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 
 
 -- Brustmuskeln

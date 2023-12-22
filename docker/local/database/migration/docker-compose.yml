@@ -4,5 +4,5 @@ services:
     image: flyway/flyway
     command: -url=jdbc:postgresql://localhost:5432/pulpout -user=pulpout -password=pulpout -connectRetries=60 migrate
     volumes:
-      - .:/flyway/sql
+      - ../../../../:/flyway/sql
     network_mode: "host"

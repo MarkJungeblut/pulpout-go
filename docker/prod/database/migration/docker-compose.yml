@@ -4,4 +4,4 @@ services:
     image: flyway/flyway
     command: -url=jdbc:postgresql://ep-withered-wave-10693984.eu-central-1.aws.neon.tech:5432/pulpout -user=pulpout -password=XXXXXXXXXXXX -defaultSchema=pulpout -connectRetries=60 migrate
     volumes:
-      - .:/flyway/sql
+      - ../../../../:/flyway/sql
