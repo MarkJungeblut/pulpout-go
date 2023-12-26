@@ -12,7 +12,8 @@
 		"vscode": {
 			"extensions": [
 				"golang.Go",
-				"PKief.material-icon-theme"
+				"PKief.material-icon-theme",
+				"ckolkman.vscode-postgres"
 			]
 		}
 	}

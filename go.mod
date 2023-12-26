@@ -5,7 +5,6 @@ go 1.21.3
 require (
 	github.com/eapache/go-resiliency v1.4.0
 	github.com/gin-gonic/gin v1.9.1
-	go.mongodb.org/mongo-driver v1.12.1
 )
 
 require (

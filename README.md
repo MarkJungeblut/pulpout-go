@@ -25,4 +25,4 @@ PulpOut will be available for both iOS and Android devices. To install:
 This project is the backend part of the described application.
 To start the project execute 
 
-`go run main.go`
+`go run *.go`

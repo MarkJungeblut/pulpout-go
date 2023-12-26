@@ -1,0 +1,1 @@
+SELECT * FROM pulpout.muscle_group
