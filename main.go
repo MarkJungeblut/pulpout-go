@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"pulpout.com/database/postgres"
 	"pulpout.com/utils"
 )
 
@@ -24,7 +25,10 @@ func main() {
 
 	// doSomething(mongoDb)
 
+	database.InitDatabase()
+
 	var content string = utils.ReadFileContent("./resources/sql/muscle/select_muscle.sql")
+
 	fmt.Println(content)
 	SetupRouter()
 }
