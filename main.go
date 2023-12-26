@@ -2,22 +2,21 @@ package main
 
 import (
 	"fmt"
-	"github.com/eapache/go-resiliency/retrier"
-	"github.com/gin-gonic/gin"
-	"go.mongodb.org/mongo-driver/mongo"
-	. "pulpout.com/database"
-	. "pulpout.com/exercises"
 	"time"
+
+	"github.com/eapache/go-resiliency/retrier"
+	"go.mongodb.org/mongo-driver/mongo"
+	"pulpout.com/database"
 )
 
 func main() {
 	r := retrier.New(retrier.ConstantBackoff(3, 100*time.Millisecond), nil)
-	var database *mongo.Database
+	var mongoDb *mongo.Database
 
 	err := r.Run(func() error {
 		// do some work
 		var err error
-		err, database = InitDatabase()
+		err, mongoDb = database.InitDatabase()
 		return err
 	})
 
@@ -26,12 +25,9 @@ func main() {
 		// TODO: Monitoring via Grafana.
 	}
 
-	doSomething(database)
+	doSomething(mongoDb)
 
-	router := gin.Default()
-	router.GET("/exercises", GetExercises)
-
-	_ = router.Run("localhost:8080")
+	SetupRouter()
 }
 
 func doSomething(database *mongo.Database) {

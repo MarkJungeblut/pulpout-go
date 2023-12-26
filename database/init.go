@@ -28,6 +28,11 @@ func InitDatabase() (error, *Database) {
 
 	// TODO: Database name from environment
 	database := client.Database("pulpout")
-	database.Collection("exercises")
+	foo := database.CreateCollection(context.Background(), "exercises")
+	if foo != nil {
+		return foo, nil
+	}
+
+	log.Print("Initializing collection")
 	return nil, database
 }

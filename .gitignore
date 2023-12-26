@@ -22,9 +22,5 @@ go.work
 .gitsecret/keys/random_seed
 !*.secret
 run.env
-/.idea/.gitignore
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/pulpout-go.iml
-/.idea/vcs.xml
 /wger/api_export/exercises/node_modules/*
+/.idea/*
