@@ -6,7 +6,6 @@ import (
 )
 
 func SelectMuscles() []Muscle {
-
 	db, err := database.InitDatabase()
 
 	utils.HandleError(err)
@@ -23,7 +22,9 @@ func SelectMuscles() []Muscle {
 
 	for rows.Next() {
 		var muscle Muscle
-		err := rows.Scan(&muscle.Id, &muscle.Name, &muscle.NameLatin)
+		var muscleGroup MuscleGroup
+		err := rows.Scan(&muscle.Id, &muscle.Name, &muscle.NameLatin, &muscle.MuscleGroupId, &muscleGroup.Id, &muscleGroup.Name, &muscleGroup.NameLatin)
+		muscle.MuscleGroup = muscleGroup
 		utils.HandleError(err)
 		muscles = append(muscles, muscle)
 	}
