@@ -7,7 +7,7 @@ import (
 type MuscleGroup = muscle_group.MuscleGroup
 
 type Muscle struct {
-	ID            uint
+	Id            uint
 	Name          string
 	NameLatin     string
 	MuscleGroupId string

@@ -4,10 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"log"
 
 	_ "github.com/lib/pq"
-	"pulpout.com/muscle"
 )
 
 func InitDatabase() (*sql.DB, error) {
@@ -25,26 +23,6 @@ func InitDatabase() (*sql.DB, error) {
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return nil, err
-	}
-
-	rows, err := db.Query("SELECT * FROM muscle_group")
-
-	if err != nil {
-		fmt.Println("Error: ", err)
-		return nil, err
-	}
-
-	var muscleGroups []muscle.MuscleGroup
-
-	for rows.Next() {
-		var muscleGroup muscle.MuscleGroup
-		if err := rows.Scan(&muscleGroup.Id, &muscleGroup.Name, &muscleGroup.NameLatin); err != nil {
-			log.Println(err.Error())
-		}
-
-		fmt.Println("Muscle Groups: ", muscleGroup)
-
-		muscleGroups = append(muscleGroups, muscleGroup)
 	}
 
 	return db, nil
