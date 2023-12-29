@@ -10,4 +10,5 @@ INSERT INTO equipment (name) VALUES ('Rudergerät');
 INSERT INTO equipment (name) VALUES ('Stepper');
 INSERT INTO equipment (name) VALUES ('TRX-Bänder');
 INSERT INTO equipment (name) VALUES ('Liegestützgriffe');
-
+INSERT INTO equipment (name) VALUES ('Kabelzugmaschine');
+INSERT INTO equipment (name) VALUES ('Beinpresse');
