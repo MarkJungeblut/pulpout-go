@@ -47,3 +47,12 @@ CREATE TABLE equipment_exercise (
     CONSTRAINT fk_equipment_exercise_exercise FOREIGN KEY (exercise_id) REFERENCES exercise(id),
     UNIQUE (equipment_id, exercise_id)
 );
+
+CREATE TABLE muscle_exercise (
+    id SERIAL PRIMARY KEY,
+    muscle_id SERIAL NOT NULL,
+    exercise_id SERIAL NOT NULL,
+    CONSTRAINT fk_muscle_exercise_muscle FOREIGN KEY (muscle_id) REFERENCES muscle(id),
+    CONSTRAINT fk_muscle_exercise_exercise FOREIGN KEY (exercise_id) REFERENCES exercise(id),
+    UNIQUE (muscle_id, exercise_id)
+);
