@@ -66,9 +66,9 @@ VALUES
 INSERT INTO exercise (name, description, created_at, updated_at, exercise_group_id) 
 VALUES 
 ('French Press', 'Trizepsdrücken über dem Kopf mit einer Lang- oder Kurzhantel.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
-('Tricep Dips', 'Dips an Parallelstangen zur Stärkung der Trizepsmuskulatur.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
-('Cable Tricep Pushdown', 'Trizepsdrücken am Kabelzug.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
-('Overhead Tricep Extension', 'Überkopf-Trizepsstreckung mit einer Hantel.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
+('Triceps Dips', 'Dips an Parallelstangen zur Stärkung der Trizepsmuskulatur.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
+('Cable Triceps Pushdown', 'Trizepsdrücken am Kabelzug.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
+('Overhead Triceps Extension', 'Überkopf-Trizepsstreckung mit einer Hantel.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
 ('Skull Crushers', 'Liegestütze mit einer Langhantel zur Trizepsstreckung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken'));
 
 -- Rudern
