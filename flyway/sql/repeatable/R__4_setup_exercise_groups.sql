@@ -1,0 +1,14 @@
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Bankdrücken', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Liegestütze', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Kniebeugen', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Kreuzheben', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Schulterdrücken', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Bizepscurls', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Trizepsdrücken', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Rudern', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Latziehen', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Beinpresse', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Wadenheben', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Seitheben', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Face Pulls', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO exercise_group (name, created_at, updated_at) VALUES ('Ausfallschritte', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
