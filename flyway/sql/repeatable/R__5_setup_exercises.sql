@@ -63,7 +63,7 @@ VALUES
 ('Rumänisches Kreuzheben', 'Fokus auf die Streckung der Hüfte mit fast gestreckten Knien, um die Hamstrings und den unteren Rücken stärker zu beanspruchen.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben')),
 ('Defizit-Kreuzheben', 'Kreuzheben auf einer erhöhten Plattform, um den Bewegungsumfang zu erhöhen und die Schwierigkeit zu steigern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben')),
 ('Kreuzheben mit gestreckten Beinen', 'Eine Kreuzheben-Variante, bei der die Beine während der Ausführung fast vollständig gestreckt bleiben, was die Belastung auf die Rückseite der Oberschenkel legt.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben')),
-('Einbeiniges Kreuzheben', 'Kreuzheben auf einem Bein ausgeführt, um die Balance und die einseitige Muskelstärke zu fördern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben'));
+('Einbeiniges Kreuzheben', 'Kreuzheben auf einem Bein ausgeführt, um die Balance und die einseitige Muskelstärke zu fördern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben')),
 ('Einbeiniges Kreuzheben mit Kurzhantel', 'Kreuzheben auf einem Bein ausgeführt, um die Balance und die einseitige Muskelstärke zu fördern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben'));
 
 INSERT INTO equipment_exercise (equipment_id, exercise_id) 
@@ -194,7 +194,7 @@ VALUES
 
 INSERT INTO equipment_exercise (equipment_id, exercise_id) 
 VALUES 
-((SELECT id FROM equipment WHERE name = 'Beinpresse'), (SELECT id FROM exercise WHERE name = 'Wadenheben am Beinpresse')),
+((SELECT id FROM equipment WHERE name = 'Beinpresse'), (SELECT id FROM exercise WHERE name = 'Wadenheben an der Beinpresse')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Barbell Calf Raise'));
 
 -- Seitheben
@@ -220,7 +220,7 @@ VALUES
 ('Face Pulls am Kabelzug', 'Ziehen eines Seils zum Gesicht, um die hintere Schulterpartie zu trainieren.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls')),
 ('Face Pulls mit Widerstandsband', 'Face Pulls, ausgeführt mit einem Widerstandsband für variable Spannung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls')),
 ('Face Pulls mit TRX-Bändern', 'Ausführung der Face Pulls unter Verwendung von TRX-Bändern zur Stabilisierung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls')),
-('Face Pulls mit Kurzhanteln', 'Face Pulls, durchgeführt mit Kurzhanteln für isolierte Muskelarbeit.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls')),
+('Face Pulls mit Kurzhanteln', 'Face Pulls, durchgeführt mit Kurzhanteln für isolierte Muskelarbeit.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls'));
 
 INSERT INTO equipment_exercise (equipment_id, exercise_id) 
 VALUES 
