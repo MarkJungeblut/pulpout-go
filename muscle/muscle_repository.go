@@ -22,9 +22,14 @@ func SelectMuscles() []Muscle {
 
 	for rows.Next() {
 		var muscle Muscle
-		var muscleGroup MuscleGroup
-		err := rows.Scan(&muscle.Id, &muscle.Name, &muscle.NameLatin, &muscle.MuscleGroupId, &muscleGroup.Id, &muscleGroup.Name, &muscleGroup.NameLatin)
-		muscle.MuscleGroup = muscleGroup
+		err := rows.Scan(&muscle.Id,
+			&muscle.Name,
+			&muscle.NameLatin,
+			&muscle.MuscleGroupId,
+			&muscle.MuscleGroup.Id,
+			&muscle.MuscleGroup.Name,
+			&muscle.MuscleGroup.NameLatin)
+
 		utils.HandleError(err)
 		muscles = append(muscles, muscle)
 	}

@@ -11,13 +11,14 @@ import (
 	"pulpout.com/utils"
 )
 
+// TODO: Change package to metrics because otherwise the variables are available due to package private scope.
 var (
 	exercisesWithoutEquipment = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "pulpout_exercises_without_equipment",
 		Help: "The count of exercises without equipment",
 	})
 
-	exercises = promauto.NewGauge(prometheus.GaugeOpts{
+	exercisesTotal = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "pulpout_exercises_total",
 		Help: "The total count of exercises",
 	})
@@ -38,7 +39,7 @@ func exercisesScheduler() {
 	startScheduler(func() {
 		var count = exercise.CountExercises()
 		fmt.Println("Exercises: ", count)
-		exercises.Set(float64(count))
+		exercisesTotal.Set(float64(count))
 	})
 }
 
