@@ -8,6 +8,7 @@ import (
 	"pulpout.com/exercise_group"
 	"pulpout.com/muscle"
 	"pulpout.com/muscle_group"
+	"pulpout.com/workout_type"
 )
 
 func SetupRouter() {
@@ -17,6 +18,7 @@ func SetupRouter() {
 	router.GET("/equipment", equipment.GetEquipment)
 	router.GET("/exercise/group", exercise_group.GetExerciseGroups)
 	router.GET("/exercise", exercise.GetExercises)
+	router.GET("/workout/type", workout_type.GetWorkoutTypes)
 	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
 	_ = router.Run("localhost:8080")

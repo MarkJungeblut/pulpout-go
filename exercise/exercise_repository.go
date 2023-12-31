@@ -40,12 +40,12 @@ func SelectExercises() []Exercise {
 	return exercises
 }
 
-func CountExercisesWithoutEquipment() uint {
+func CountExercises() uint {
 	db, err := database.InitDatabase()
 
 	utils.HandleError(err)
 
-	content, err := utils.ReadFileContent("./exercise/sql/count_exercise_without_equipment.sql")
+	content, err := utils.ReadFileContent("./exercise/sql/count_exercise.sql")
 
 	utils.HandleError(err)
 
@@ -59,12 +59,12 @@ func CountExercisesWithoutEquipment() uint {
 	return count
 }
 
-func CountExercises() uint {
+func CountExercisesWithoutEquipment() uint {
 	db, err := database.InitDatabase()
 
 	utils.HandleError(err)
 
-	content, err := utils.ReadFileContent("./exercise/sql/count_exercise.sql")
+	content, err := utils.ReadFileContent("./exercise/sql/count_exercise_without_equipment.sql")
 
 	utils.HandleError(err)
 

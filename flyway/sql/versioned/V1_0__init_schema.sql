@@ -56,3 +56,19 @@ CREATE TABLE muscle_exercise (
     CONSTRAINT fk_muscle_exercise_exercise FOREIGN KEY (exercise_id) REFERENCES exercise(id),
     UNIQUE (muscle_id, exercise_id)
 );
+
+CREATE TABLE workout_type (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    UNIQUE (name)
+);
+
+CREATE TABLE exercise_group_workout_type (
+    id SERIAL PRIMARY KEY,
+    exercise_group_id SERIAL NOT NULL,
+    workout_type_id SERIAL NOT NULL,
+    CONSTRAINT fk_exercise_group_workout_type_exercise_group FOREIGN KEY (exercise_group_id) REFERENCES exercise_group(id),
+    CONSTRAINT fk_exercise_group_workout_type_workout_type FOREIGN KEY (workout_type_id) REFERENCES workout_type(id),
+    UNIQUE (exercise_group_id, workout_type_id)
+);

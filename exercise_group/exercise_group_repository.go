@@ -6,7 +6,6 @@ import (
 )
 
 func SelectExerciseGroups() []ExerciseGroup {
-
 	db, err := database.InitDatabase()
 
 	utils.HandleError(err)
@@ -29,4 +28,42 @@ func SelectExerciseGroups() []ExerciseGroup {
 	}
 
 	return exerciseGroups
+}
+
+func CountExerciseGroupsWithoutWorkoutType() uint {
+	db, err := database.InitDatabase()
+
+	utils.HandleError(err)
+
+	content, err := utils.ReadFileContent("./exercise_group/sql/count_exercise_group_without_workout_type.sql")
+
+	utils.HandleError(err)
+
+	row := db.QueryRow(content)
+
+	var count uint
+	err = row.Scan(&count)
+
+	utils.HandleError(err)
+
+	return count
+}
+
+func CountExerciseGroups() uint {
+	db, err := database.InitDatabase()
+
+	utils.HandleError(err)
+
+	content, err := utils.ReadFileContent("./exercise_group/sql/count_exercise_group.sql")
+
+	utils.HandleError(err)
+
+	row := db.QueryRow(content)
+
+	var count uint
+	err = row.Scan(&count)
+
+	utils.HandleError(err)
+
+	return count
 }
