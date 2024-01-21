@@ -27,6 +27,8 @@ func SelectExerciseGroups() []ExerciseGroup {
 		exerciseGroups = append(exerciseGroups, exerciseGroup)
 	}
 
+	db.Close()
+
 	return exerciseGroups
 }
 

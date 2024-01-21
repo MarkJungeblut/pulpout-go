@@ -72,3 +72,10 @@ CREATE TABLE exercise_group_workout_type (
     CONSTRAINT fk_exercise_group_workout_type_workout_type FOREIGN KEY (workout_type_id) REFERENCES workout_type(id),
     UNIQUE (exercise_group_id, workout_type_id)
 );
+
+CREATE TABLE advice (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    exercise_id SERIAL,
+    CONSTRAINT fk_advice_exercise_exercise_id FOREIGN KEY (exercise_id) REFERENCES exercise(id)
+);

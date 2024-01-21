@@ -1,6 +1,7 @@
 package exercise
 
 import (
+	"pulpout.com/advice"
 	database "pulpout.com/database/postgres"
 	"pulpout.com/utils"
 )
@@ -20,8 +21,10 @@ func SelectExercises() []Exercise {
 
 	var exercises []Exercise
 
+	var advices []advice.Advice = advice.SelectAdvices()
+
 	for rows.Next() {
-		var exercise Exercise
+		var exercise Exercise = NewExercise()
 		err := rows.Scan(&exercise.Id,
 			&exercise.Name,
 			&exercise.Description,
@@ -37,7 +40,9 @@ func SelectExercises() []Exercise {
 		exercises = append(exercises, exercise)
 	}
 
-	return exercises
+	db.Close()
+
+	return assignAdvicesToExercises(exercises, advices)
 }
 
 func CountExercises() uint {
@@ -76,4 +81,23 @@ func CountExercisesWithoutEquipment() uint {
 	utils.HandleError(err)
 
 	return count
+}
+
+func assignAdvicesToExercises(exercises []Exercise, advices []advice.Advice) []Exercise {
+	exerciseAdvices := make(map[uint][]advice.Advice)
+
+	for _, advice := range advices {
+		exerciseAdvices[advice.ExerciseId] = append(exerciseAdvices[advice.ExerciseId], advice)
+	}
+
+	for i, exercise := range exercises {
+
+		var advices = exerciseAdvices[exercise.Id]
+
+		if advices != nil {
+			exercises[i].Advices = advices
+		}
+	}
+
+	return exercises
 }
