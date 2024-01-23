@@ -9,6 +9,10 @@ import (
 func SelectExercises() []Exercise {
 	db, err := database.InitDatabase()
 
+	defer func() {
+		db.Close()
+	}()
+
 	utils.HandleError(err)
 
 	content, err := utils.ReadFileContent("./exercise/sql/select_exercise.sql")
@@ -40,13 +44,15 @@ func SelectExercises() []Exercise {
 		exercises = append(exercises, exercise)
 	}
 
-	db.Close()
-
 	return assignAdvicesToExercises(exercises, advices)
 }
 
 func CountExercises() uint {
 	db, err := database.InitDatabase()
+
+	defer func() {
+		db.Close()
+	}()
 
 	utils.HandleError(err)
 
@@ -66,6 +72,10 @@ func CountExercises() uint {
 
 func CountExercisesWithoutEquipment() uint {
 	db, err := database.InitDatabase()
+
+	defer func() {
+		db.Close()
+	}()
 
 	utils.HandleError(err)
 
@@ -100,4 +110,45 @@ func assignAdvicesToExercises(exercises []Exercise, advices []advice.Advice) []E
 	}
 
 	return exercises
+}
+
+func selectExercisesOfWorkoutSchedule(workoutScheduleId uint) []Exercise {
+	db, err := database.InitDatabase()
+
+	defer func() {
+		db.Close()
+	}()
+
+	utils.HandleError(err)
+
+	content, err := utils.ReadFileContent("./exercise/sql/select_exercise_of_workout_schedule.sql")
+
+	utils.HandleError(err)
+
+	rows, err := db.Query(content, workoutScheduleId)
+
+	utils.HandleError(err)
+
+	var exercises []Exercise
+
+	var advices []advice.Advice = advice.SelectAdvices()
+
+	for rows.Next() {
+		var exercise Exercise = NewExercise()
+		err := rows.Scan(&exercise.Id,
+			&exercise.Name,
+			&exercise.Description,
+			&exercise.CreatedAt,
+			&exercise.UpdatedAt,
+			&exercise.ExerciseGroupId,
+			&exercise.ExerciseGroup.Id,
+			&exercise.ExerciseGroup.Name,
+			&exercise.ExerciseGroup.CreatedAt,
+			&exercise.ExerciseGroup.UpdatedAt)
+
+		utils.HandleError(err)
+		exercises = append(exercises, exercise)
+	}
+
+	return assignAdvicesToExercises(exercises, advices)
 }

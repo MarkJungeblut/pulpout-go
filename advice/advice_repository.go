@@ -9,6 +9,10 @@ func SelectAdvices() []Advice {
 
 	db, err := database.InitDatabase()
 
+	defer func() {
+		db.Close()
+	}()
+
 	utils.HandleError(err)
 
 	content, err := utils.ReadFileContent("./advice/sql/select_advice.sql")

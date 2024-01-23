@@ -9,6 +9,10 @@ func SelectWorkoutTypes() []WorkoutType {
 
 	db, err := database.InitDatabase()
 
+	defer func() {
+		db.Close()
+	}()
+
 	utils.HandleError(err)
 
 	content, err := utils.ReadFileContent("./workout_type/sql/select_workout_type.sql")

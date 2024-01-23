@@ -7,6 +7,10 @@ import (
 
 func SelectMuscles() []Muscle {
 	db, err := database.InitDatabase()
+	
+	defer func() {
+		db.Close()
+	}()
 
 	utils.HandleError(err)
 

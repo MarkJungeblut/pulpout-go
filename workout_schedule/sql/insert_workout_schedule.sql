@@ -1,0 +1,1 @@
+INSERT INTO workout_schedule (name, description, notes) VALUES ($1, $2, $3) RETURNING id

@@ -1,0 +1,1 @@
+INSERT INTO workout_schedule_exercise (workout_schedule_id, exercise_id) VALUES ($1, $2)

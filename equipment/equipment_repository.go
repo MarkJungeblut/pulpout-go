@@ -8,6 +8,10 @@ import (
 func SelectEquipment() []Equipment {
 	db, err := database.InitDatabase()
 
+	defer func() {
+		db.Close()
+	}()
+
 	utils.HandleError(err)
 
 	content, err := utils.ReadFileContent("./equipment/sql/select_equipment.sql")

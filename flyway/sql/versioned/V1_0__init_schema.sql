@@ -79,3 +79,16 @@ CREATE TABLE advice (
     exercise_id SERIAL,
     CONSTRAINT fk_advice_exercise_exercise_id FOREIGN KEY (exercise_id) REFERENCES exercise(id)
 );
+
+CREATE TABLE workout_schedule (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    notes TEXT
+);
+
+CREATE TABLE workout_schedule_exercise (
+    workout_schedule_id INT REFERENCES workout_schedule(id),
+    exercise_id INT REFERENCES exercise(id),
+    PRIMARY KEY (workout_schedule_id, exercise_id)
+);
