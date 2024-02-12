@@ -64,7 +64,7 @@ func SelectWorkoutScheduleById(id uint) []WorkoutSchedule {
 	return workoutSchedules
 }
 
-func InsertWorkoutSchedule(workoutSchedule WorkoutSchedule) error {
+func InsertWorkoutSchedule(workoutSchedule WorkoutSchedule) (WorkoutSchedule, error) {
 
 	db, err := database.InitDatabase()
 
@@ -74,7 +74,7 @@ func InsertWorkoutSchedule(workoutSchedule WorkoutSchedule) error {
 
 	utils.HandleError(err)
 
-	content, err := utils.ReadFileContent("./workout_type/sql/insert_workout_schedule.sql")
+	content, err := utils.ReadFileContent("./workout_schedule/sql/insert_workout_schedule.sql")
 
 	utils.HandleError(err)
 
@@ -90,15 +90,13 @@ func InsertWorkoutSchedule(workoutSchedule WorkoutSchedule) error {
 		err = tx.Commit()
 	}()
 
-	result, err := db.Exec(content, workoutSchedule.Name, workoutSchedule.Description, workoutSchedule.Notes)
+	var workoutScheduleId uint
+
+	err = db.QueryRow(content, workoutSchedule.Name, workoutSchedule.Description, workoutSchedule.Notes).Scan(&workoutScheduleId)
 
 	utils.HandleError(err)
 
-	workoutScheduleId, err := result.LastInsertId()
-
-	utils.HandleError(err)
-
-	content, err = utils.ReadFileContent("./workout_type/sql/insert_workout_schedule_exercise.sql")
+	content, err = utils.ReadFileContent("./workout_schedule/sql/insert_workout_schedule_exercise.sql")
 
 	for _, exercise := range workoutSchedule.Exercises {
 		_, err := db.Exec(content, workoutScheduleId, exercise.Id)
@@ -106,5 +104,7 @@ func InsertWorkoutSchedule(workoutSchedule WorkoutSchedule) error {
 		utils.HandleError(err)
 	}
 
-	return nil
+	workoutSchedule.Id = workoutScheduleId
+
+	return workoutSchedule, nil
 }

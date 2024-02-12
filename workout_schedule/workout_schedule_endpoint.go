@@ -39,7 +39,9 @@ func PostWorkoutSchedule(c *gin.Context) {
 		return
 	}
 
-	if err := InsertWorkoutSchedule(workoutSchedule); err != nil {
+	workoutSchedule, err := InsertWorkoutSchedule(workoutSchedule)
+
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error while inserting a workout schedule."})
 		return
 	}
