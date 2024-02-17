@@ -14,7 +14,7 @@ func SelectWorkoutSchedules() []WorkoutSchedule {
 
 	utils.HandleError(err)
 
-	content, err := utils.ReadFileContent("./workout_type/sql/select_workout_schedule.sql")
+	content, err := utils.ReadFileContent("./workout_schedule/sql/select_workout_schedule.sql")
 
 	utils.HandleError(err)
 
