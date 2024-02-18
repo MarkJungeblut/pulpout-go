@@ -22,7 +22,7 @@ func SelectWorkoutSchedules() []WorkoutSchedule {
 
 	utils.HandleError(err)
 
-	var workoutSchedules []WorkoutSchedule
+	var workoutSchedules []WorkoutSchedule = make([]WorkoutSchedule, 0)
 
 	for rows.Next() {
 		var workoutSchedule WorkoutSchedule = NewWorkoutSchedule()
