@@ -112,7 +112,7 @@ func assignAdvicesToExercises(exercises []Exercise, advices []advice.Advice) []E
 	return exercises
 }
 
-func selectExercisesOfWorkoutSchedule(workoutScheduleId uint) []Exercise {
+func SelectExercisesOfWorkoutSchedule(workoutScheduleId uint) []Exercise {
 	db, err := database.InitDatabase()
 
 	defer func() {

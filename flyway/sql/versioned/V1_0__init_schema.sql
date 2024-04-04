@@ -1,3 +1,12 @@
+-- Create a function to update the timestamps
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
 CREATE TABLE muscle_group (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -75,8 +84,16 @@ CREATE TABLE workout_schedule (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    notes TEXT
+    notes TEXT,
+    created_at TIMESTAMP default CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP default CURRENT_TIMESTAMP NOT NULL
 );
+
+-- Create a trigger to update the timestamp when a row is updated
+CREATE TRIGGER workout_schedule_updated_at
+BEFORE UPDATE ON workout_schedule
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
 
 CREATE TABLE workout_schedule_exercise (
     id SERIAL PRIMARY KEY,

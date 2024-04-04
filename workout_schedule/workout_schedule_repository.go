@@ -26,7 +26,7 @@ func SelectWorkoutSchedules() []WorkoutSchedule {
 
 	for rows.Next() {
 		var workoutSchedule WorkoutSchedule = NewWorkoutSchedule()
-		err := rows.Scan(&workoutSchedule.Id, &workoutSchedule.Name, &workoutSchedule.Description, &workoutSchedule.Notes)
+		err := rows.Scan(&workoutSchedule.Id, &workoutSchedule.Name, &workoutSchedule.Description, &workoutSchedule.Notes, &workoutSchedule.CreatedAt, &workoutSchedule.UpdatedAt)
 		utils.HandleError(err)
 		workoutSchedules = append(workoutSchedules, workoutSchedule)
 	}
@@ -56,7 +56,13 @@ func SelectWorkoutScheduleById(id uint) []WorkoutSchedule {
 
 	for rows.Next() {
 		var workoutSchedule WorkoutSchedule = NewWorkoutSchedule()
-		err := rows.Scan(&workoutSchedule.Id, &workoutSchedule.Name, &workoutSchedule.Description, &workoutSchedule.Notes)
+		err := rows.Scan(
+			&workoutSchedule.Id,
+			&workoutSchedule.Name,
+			&workoutSchedule.Description,
+			&workoutSchedule.Notes,
+			&workoutSchedule.CreatedAt,
+			&workoutSchedule.UpdatedAt)
 		utils.HandleError(err)
 		workoutSchedules = append(workoutSchedules, workoutSchedule)
 	}

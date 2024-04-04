@@ -1,6 +1,10 @@
 package workout_schedule
 
-import "pulpout.com/exercise"
+import (
+	"time"
+
+	"pulpout.com/exercise"
+)
 
 type WorkoutSchedule struct {
 	Id          uint
@@ -8,6 +12,8 @@ type WorkoutSchedule struct {
 	Description string
 	Notes       string
 	Exercises   []exercise.Exercise
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
 }
 
 func NewWorkoutSchedule() WorkoutSchedule {

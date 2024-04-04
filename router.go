@@ -23,6 +23,7 @@ func SetupRouter() {
 	router.GET("/workout/schedule", workout_schedule.GetWorkoutSchedules)
 	router.GET("/workout/schedule/:id", workout_schedule.GetWorkoutScheduleById)
 	router.POST("workout/schedule", workout_schedule.PostWorkoutSchedule)
+	router.GET("/workout/schedule/:id/exercise", exercise.GetExercisesOfWorkoutSchedule)
 	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
 	_ = router.Run("localhost:8080")
