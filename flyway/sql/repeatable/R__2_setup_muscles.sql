@@ -1,6 +1,8 @@
 -- Armmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Bizeps', 'Musculus biceps brachii', (SELECT id FROM muscle_group WHERE name = 'Arme'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Trizeps', 'Musculus triceps brachii', (SELECT id FROM muscle_group WHERE name = 'Arme'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Brachialis', 'Musculus brachialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Brachioradialis', 'Musculus brachioradialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
 
 -- Beinmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Quadrizeps', 'Musculus quadriceps femoris', (SELECT id FROM muscle_group WHERE name = 'Beine'));
@@ -12,7 +14,7 @@ INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Gesäßm
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Mittlerer Gesäßmuskel', 'Musculus gluteus medius', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Kleiner Gesäßmuskel', 'Musculus gluteus minimus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Adduktorengruppe', 'Musculi adductores', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Abduktorengruppe', 'Musculi abductores', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 
 -- Brustmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Brustmuskel', 'Musculus pectoralis major', (SELECT id FROM muscle_group WHERE name = 'Brust'));

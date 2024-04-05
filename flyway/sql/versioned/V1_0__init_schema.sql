@@ -46,15 +46,16 @@ CREATE TABLE exercise (
     UNIQUE (name)
 );
 
-CREATE TABLE equipment_exercise (
+CREATE TABLE exercise_equipment (
     id SERIAL PRIMARY KEY,
     equipment_id SERIAL REFERENCES equipment(id),
     exercise_id SERIAL REFERENCES exercise(id),
     UNIQUE (equipment_id, exercise_id)
 );
 
-CREATE TABLE muscle_exercise (
+CREATE TABLE exercise_muscle (
     id SERIAL PRIMARY KEY,
+    intensity REAL NOT NULL default 1,
     muscle_id SERIAL REFERENCES muscle(id),
     exercise_id SERIAL REFERENCES exercise(id),
     UNIQUE (muscle_id, exercise_id)

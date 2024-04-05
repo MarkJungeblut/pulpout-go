@@ -11,7 +11,7 @@ VALUES
 ('Einarmiges Bankdrücken', 'Bankdrücken mit einer Kurzhantel auf einer flachen Bank, ausgeführt mit nur einem Arm zur Verbesserung der Muskelbalance und Koordination.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Bankdrücken'));
 
 -- Standard Bankdrücken (verwendet Langhantel)
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Standard Bankdrücken')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Schrägbankdrücken')),
@@ -45,7 +45,7 @@ VALUES
 ('Split-Kniebeugen', 'Eine einbeinige Kniebeugenvariante, bei der das hintere Bein auf einer Erhöhung abgelegt wird.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kniebeugen')),
 ('Split-Kniebeugen mit Kurzhantel', 'Eine einbeinige Kniebeugenvariante, bei der das hintere Bein auf einer Erhöhung abgelegt wird.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kniebeugen'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Klassische Kniebeugen mit Langhantel')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Frontkniebeugen')),
@@ -66,7 +66,7 @@ VALUES
 ('Einbeiniges Kreuzheben', 'Kreuzheben auf einem Bein ausgeführt, um die Balance und die einseitige Muskelstärke zu fördern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben')),
 ('Einbeiniges Kreuzheben mit Kurzhantel', 'Kreuzheben auf einem Bein ausgeführt, um die Balance und die einseitige Muskelstärke zu fördern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Kreuzheben'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Klassisches Kreuzheben')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Sumo-Kreuzheben')),
@@ -87,7 +87,7 @@ VALUES
 ('Seated Dumbbell Press', 'Sitzendes Schulterdrücken mit Kurzhanteln.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Schulterdrücken'));
 
 -- Militärpresse (verwendet Langhantel)
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Militärpresse')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Seated Barbell Press')),
@@ -106,7 +106,7 @@ VALUES
 ('Preacher Curls mit Kurzhantel', 'Bizepscurls an einer Preacher-Bank für eine isolierte Ausführung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Bizepscurls')),
 ('Cable Bicep Curls', 'Bizepscurls am Kabelzug für kontinuierlichen Widerstand.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Bizepscurls'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Kurzhantel-Curls')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Langhantel-Curls')),
@@ -125,7 +125,7 @@ VALUES
 ('Overhead Triceps Extension', 'Überkopf-Trizepsstreckung mit einer Hantel.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken')),
 ('Skull Crushers', 'Liegestütze mit einer Langhantel zur Trizepsstreckung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Trizepsdrücken'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'French Press mit Langhantel')),
 ((SELECT id FROM equipment WHERE name = 'Kurzhantel'), (SELECT id FROM exercise WHERE name = 'French Press mit Kurzhantel')),
@@ -143,7 +143,7 @@ VALUES
 ('Machine Rows', 'Rudern an einer speziellen Rudermaschine.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Rudern'));
 
 -- Barbell Rows (verwendet Langhantel)
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Barbell Rows')),
 ((SELECT id FROM equipment WHERE name = 'Kurzhantel'), (SELECT id FROM exercise WHERE name = 'Dumbbell Rows'));
@@ -158,7 +158,7 @@ VALUES
 ('V-Bar Lat Pulldown', 'Latziehen mit einer V-förmigen Stange.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Latziehen'));
 
 -- Lat Pulldown
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Kabelzugmaschine'), (SELECT id FROM exercise WHERE name = 'Lat Pulldown')),
 ((SELECT id FROM equipment WHERE name = 'Kabelzugmaschine'), (SELECT id FROM exercise WHERE name = 'Wide-Grip Lat Pulldown')),
@@ -175,7 +175,7 @@ VALUES
 ('Beinpresse mit hoher Fußstellung', 'Beinpresse an der Maschine mit hoher Fußstellung zur stärkeren Aktivierung der Hamstrings.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Beinpresse')),
 ('Beinpresse mit niedriger Fußstellung', 'Beinpresse an der Maschine mit niedriger Fußstellung zur stärkeren Aktivierung der Quadrizeps.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Beinpresse'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Beinpresse'), (SELECT id FROM exercise WHERE name = 'Beinpresse mit engem Stand')),
 ((SELECT id FROM equipment WHERE name = 'Beinpresse'), (SELECT id FROM exercise WHERE name = 'Beinpresse mit weitem Stand')),
@@ -192,7 +192,7 @@ VALUES
 ('Einbeiniges Wadenheben', 'Wadenheben auf einem Bein für isolierte Muskelarbeit.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Wadenheben')),
 ('Barbell Calf Raise', 'Wadenheben mit einer Langhantel auf den Schultern.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Wadenheben'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Beinpresse'), (SELECT id FROM exercise WHERE name = 'Wadenheben an der Beinpresse')),
 ((SELECT id FROM equipment WHERE name = 'Langhantel'), (SELECT id FROM exercise WHERE name = 'Barbell Calf Raise'));
@@ -207,7 +207,7 @@ VALUES
 ('Seitheben im Sitzen', 'Seitheben, ausgeführt in sitzender Position für eine stabilere Haltung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Seitheben'));
 
 -- Seitheben mit Kurzhanteln
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Kurzhantel'), (SELECT id FROM exercise WHERE name = 'Seitheben mit Kurzhanteln')),
 ((SELECT id FROM equipment WHERE name = 'Kabelzugmaschine'), (SELECT id FROM exercise WHERE name = 'Seitheben am Kabelzug')),
@@ -222,7 +222,7 @@ VALUES
 ('Face Pulls mit TRX-Bändern', 'Ausführung der Face Pulls unter Verwendung von TRX-Bändern zur Stabilisierung.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls')),
 ('Face Pulls mit Kurzhanteln', 'Face Pulls, durchgeführt mit Kurzhanteln für isolierte Muskelarbeit.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, (SELECT id FROM exercise_group WHERE name = 'Face Pulls'));
 
-INSERT INTO equipment_exercise (equipment_id, exercise_id) 
+INSERT INTO exercise_equipment (equipment_id, exercise_id) 
 VALUES 
 ((SELECT id FROM equipment WHERE name = 'Kabelzugmaschine'), (SELECT id FROM exercise WHERE name = 'Face Pulls am Kabelzug')),
 ((SELECT id FROM equipment WHERE name = 'Fitnessband'), (SELECT id FROM exercise WHERE name = 'Face Pulls mit Widerstandsband')),
