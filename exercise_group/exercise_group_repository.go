@@ -26,7 +26,7 @@ func SelectExerciseGroups() []ExerciseGroup {
 
 	for rows.Next() {
 		var exerciseGroup ExerciseGroup
-		err := rows.Scan(&exerciseGroup.Id, &exerciseGroup.Name, &exerciseGroup.CreatedAt, &exerciseGroup.UpdatedAt)
+		err := rows.Scan(&exerciseGroup.Id, &exerciseGroup.Name)
 		utils.HandleError(err)
 		exerciseGroups = append(exerciseGroups, exerciseGroup)
 	}

@@ -3,6 +3,7 @@ package exercise
 import (
 	"pulpout.com/advice"
 	"pulpout.com/equipment"
+	"pulpout.com/exercise_group"
 	"pulpout.com/muscle"
 )
 
@@ -67,12 +68,13 @@ func createExerciseFromEntity(entity ExerciseEntity) Exercise {
 	defaultExercise := NewExercise()
 
 	return Exercise{
-		Id:          entity.Id,
-		Name:        entity.Name,
-		Description: entity.Description,
-		Muscles:     defaultExercise.Muscles,
-		Equipments:  defaultExercise.Equipments,
-		Advices:     defaultExercise.Advices,
+		Id:            entity.Id,
+		Name:          entity.Name,
+		Description:   entity.Description,
+		ExerciseGroup: exercise_group.ExerciseGroup{Id: entity.ExerciseGroupId, Name: entity.ExerciseGroupName},
+		Muscles:       defaultExercise.Muscles,
+		Equipments:    defaultExercise.Equipments,
+		Advices:       defaultExercise.Advices,
 	}
 }
 
