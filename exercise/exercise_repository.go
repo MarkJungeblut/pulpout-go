@@ -1,12 +1,13 @@
 package exercise
 
 import (
-	"pulpout.com/advice"
+	"database/sql"
+
 	database "pulpout.com/database/postgres"
 	"pulpout.com/utils"
 )
 
-func SelectExercises() []Exercise {
+func SelectExercises() []ExerciseEntity {
 	db, err := database.InitDatabase()
 
 	defer func() {
@@ -23,28 +24,15 @@ func SelectExercises() []Exercise {
 
 	utils.HandleError(err)
 
-	var exercises []Exercise
-
-	var advices []advice.Advice = advice.SelectAdvices()
+	var exercises []ExerciseEntity
 
 	for rows.Next() {
-		var exercise Exercise = NewExercise()
-		err := rows.Scan(&exercise.Id,
-			&exercise.Name,
-			&exercise.Description,
-			&exercise.CreatedAt,
-			&exercise.UpdatedAt,
-			&exercise.ExerciseGroupId,
-			&exercise.ExerciseGroup.Id,
-			&exercise.ExerciseGroup.Name,
-			&exercise.ExerciseGroup.CreatedAt,
-			&exercise.ExerciseGroup.UpdatedAt)
-
+		exercise, err := scanExerciseEntity(rows)
 		utils.HandleError(err)
 		exercises = append(exercises, exercise)
 	}
 
-	return assignAdvicesToExercises(exercises, advices)
+	return exercises
 }
 
 func CountExercises() uint {
@@ -93,26 +81,7 @@ func CountExercisesWithoutEquipment() uint {
 	return count
 }
 
-func assignAdvicesToExercises(exercises []Exercise, advices []advice.Advice) []Exercise {
-	exerciseAdvices := make(map[uint][]advice.Advice)
-
-	for _, advice := range advices {
-		exerciseAdvices[advice.ExerciseId] = append(exerciseAdvices[advice.ExerciseId], advice)
-	}
-
-	for i, exercise := range exercises {
-
-		var advices = exerciseAdvices[exercise.Id]
-
-		if advices != nil {
-			exercises[i].Advices = advices
-		}
-	}
-
-	return exercises
-}
-
-func SelectExercisesOfWorkoutSchedule(workoutScheduleId uint) []Exercise {
+func SelectExercisesOfWorkoutSchedule(workoutScheduleId uint) []ExerciseEntity {
 	db, err := database.InitDatabase()
 
 	defer func() {
@@ -129,26 +98,35 @@ func SelectExercisesOfWorkoutSchedule(workoutScheduleId uint) []Exercise {
 
 	utils.HandleError(err)
 
-	var exercises []Exercise
-
-	var advices []advice.Advice = advice.SelectAdvices()
+	var exercises []ExerciseEntity
 
 	for rows.Next() {
-		var exercise Exercise = NewExercise()
-		err := rows.Scan(&exercise.Id,
-			&exercise.Name,
-			&exercise.Description,
-			&exercise.CreatedAt,
-			&exercise.UpdatedAt,
-			&exercise.ExerciseGroupId,
-			&exercise.ExerciseGroup.Id,
-			&exercise.ExerciseGroup.Name,
-			&exercise.ExerciseGroup.CreatedAt,
-			&exercise.ExerciseGroup.UpdatedAt)
-
+		exercise, err := scanExerciseEntity(rows)
 		utils.HandleError(err)
 		exercises = append(exercises, exercise)
 	}
 
-	return assignAdvicesToExercises(exercises, advices)
+	return exercises
+}
+
+func scanExerciseEntity(rows *sql.Rows) (ExerciseEntity, error) {
+	var exercise ExerciseEntity
+	err := rows.Scan(&exercise.Id,
+		&exercise.Name,
+		&exercise.Description,
+		&exercise.ExerciseGroupId,
+		&exercise.ExerciseGroupName,
+		&exercise.MuscleId,
+		&exercise.MuscleName,
+		&exercise.MuscleNameLatin,
+		&exercise.MuscleGroupId,
+		&exercise.MuscleGroupName,
+		&exercise.MuscleGroupNameLatin,
+		&exercise.EquipmentId,
+		&exercise.EquipmentName,
+		&exercise.AdviceId,
+		&exercise.AdviceName,
+	)
+
+	return exercise, err
 }

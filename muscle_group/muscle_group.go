@@ -1,7 +1,7 @@
 package muscle_group
 
 type MuscleGroup struct {
-	Id        int
+	Id        uint
 	Name      string
 	NameLatin string
 }

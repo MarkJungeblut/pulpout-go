@@ -10,6 +10,6 @@ type Muscle struct {
 	Id            uint
 	Name          string
 	NameLatin     string
-	MuscleGroupId string
+	MuscleGroupId uint
 	MuscleGroup   MuscleGroup
 }

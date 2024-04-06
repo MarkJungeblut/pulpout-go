@@ -7,11 +7,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetExercises(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, SelectExercises())
+func HandleGetExercises(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, GetExercises())
 }
 
-func GetExercisesOfWorkoutSchedule(c *gin.Context) {
+func HandleGetExercisesOfWorkoutSchedule(c *gin.Context) {
 
 	idStr := c.Param("id")
 
@@ -22,5 +22,5 @@ func GetExercisesOfWorkoutSchedule(c *gin.Context) {
 		return
 	}
 
-	c.IndentedJSON(http.StatusOK, SelectExercisesOfWorkoutSchedule(uint(id)))
+	c.IndentedJSON(http.StatusOK, GetExercisesOfWorkoutSchedule(uint(id)))
 }
