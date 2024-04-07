@@ -1,1 +1,1 @@
-SELECT * FROM exercise_group
+SELECT id, name FROM exercise_group

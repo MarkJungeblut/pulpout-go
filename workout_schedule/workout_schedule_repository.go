@@ -44,11 +44,11 @@ func SelectWorkoutScheduleById(id uint) []WorkoutSchedule {
 
 	utils.HandleError(err)
 
-	content, err := utils.ReadFileContent("./workout_type/sql/select_workout_schedule_by_id.sql")
+	content, err := utils.ReadFileContent("./workout_schedule/sql/select_workout_schedule_by_id.sql")
 
 	utils.HandleError(err)
 
-	rows, err := db.Query(content)
+	rows, err := db.Query(content, id)
 
 	utils.HandleError(err)
 

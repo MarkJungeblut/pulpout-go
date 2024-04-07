@@ -24,6 +24,6 @@ FROM exercise
     LEFT JOIN equipment ON equipment.id = exercise_equipment.equipment_id
 	LEFT JOIN advice ON advice.exercise_id = exercise.id
 WHERE
-    wse.workout_schedule_id = 1
+    wse.workout_schedule_id = $1
 	
 GROUP BY exercise.id, exercise_group.id, muscle.id, muscle_group.id, equipment.id, advice.id
