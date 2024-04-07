@@ -1,42 +1,34 @@
 -- Bankdrücken
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Standard Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Standard Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Standard Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken mit Kurzhantel'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken mit Kurzhantel'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Schrägbankdrücken mit Kurzhantel'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Negativ Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Negativ Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Negativ Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Kurzhantel Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Kurzhantel Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Kurzhantel Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Maschinen Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Maschinen Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Maschinen Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Explosives Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Explosives Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Explosives Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 INSERT INTO exercise_muscle (exercise_id, muscle_id) VALUES 
 ((SELECT id FROM exercise WHERE name = 'Einarmiges Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Großer Brustmuskel')),
-((SELECT id FROM exercise WHERE name = 'Einarmiges Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Kleiner Brustmuskel')),
 ((SELECT id FROM exercise WHERE name = 'Einarmiges Bankdrücken'), (SELECT id FROM muscle WHERE name = 'Trizeps'));
 
 -- Liegestütze

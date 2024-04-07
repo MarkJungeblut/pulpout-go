@@ -1,26 +1,29 @@
 -- Armmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Bizeps', 'Musculus biceps brachii', (SELECT id FROM muscle_group WHERE name = 'Arme'));
+-- Seitlich am Bizeps
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Oberarmmuskel', 'Musculus brachialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
+-- Unterarm
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Oberarmspeichenmuskel', 'Musculus brachioradialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Trizeps', 'Musculus triceps brachii', (SELECT id FROM muscle_group WHERE name = 'Arme'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Brachialis', 'Musculus brachialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Brachioradialis', 'Musculus brachioradialis', (SELECT id FROM muscle_group WHERE name = 'Arme'));
 
 -- Beinmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Quadrizeps', 'Musculus quadriceps femoris', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Wadenmuskeln', 'Musculi surae', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Schneidermuskel', 'Musculus sartorius', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Schollenmuskel', 'Musculus soleus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Lateraler Oberschenkelmuskel', 'Musculus vastus lateralis', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Medialer Oberschenkelmuskel', 'Musculus vastus medialis', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Oberschenkelbindenspanner', 'Musculus tensor fasciae latae', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Bizepsmuskel des Oberschenkels', 'Musculus biceps femoris', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Halbsehnenmuskel', 'Musculus semitendinosus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Halbmembranöser Muskel', 'Musculus semimembranosus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Wadenmuskeln', 'Musculus gastrocnemius', (SELECT id FROM muscle_group WHERE name = 'Beine'));
+INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Schlankmuskel', 'Musculus gracilis', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Gesäßmuskel', 'Musculus gluteus maximus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Mittlerer Gesäßmuskel', 'Musculus gluteus medius', (SELECT id FROM muscle_group WHERE name = 'Beine'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Kleiner Gesäßmuskel', 'Musculus gluteus minimus', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Adduktorengruppe', 'Musculi adductores', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Abduktorengruppe', 'Musculi abductores', (SELECT id FROM muscle_group WHERE name = 'Beine'));
 
 -- Brustmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Brustmuskel', 'Musculus pectoralis major', (SELECT id FROM muscle_group WHERE name = 'Brust'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Kleiner Brustmuskel', 'Musculus pectoralis minor', (SELECT id FROM muscle_group WHERE name = 'Brust'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Vorderer Sägemuskel', 'Musculus serratus anterior', (SELECT id FROM muscle_group WHERE name = 'Brust'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Unterschlüsselbeinmuskel', 'Musculus subclavius', (SELECT id FROM muscle_group WHERE name = 'Brust'));
 
 -- Rückenmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Latissimus', 'Musculus latissimus dorsi', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
@@ -28,10 +31,6 @@ INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Trapezmuskel', '
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Rückenstrecker', 'Musculi erector spinae', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Großer Rautenmuskel', 'Musculus rhomboideus major', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Kleiner Rautenmuskel', 'Musculus rhomboideus minor', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Schulterblattheber', 'Musculus levator scapulae', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Oberer Sägemuskel', 'Musculus serratus posterior superior', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Unterer Sägemuskel', 'Musculus serratus posterior inferior', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
-INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Zwischenrippenmuskeln', 'Musculi intercostales', (SELECT id FROM muscle_group WHERE name = 'Rücken'));
 
 -- Bauchmuskeln
 INSERT INTO muscle (name, name_latin, muscle_group_id) VALUES ('Gerader Bauchmuskel', 'Musculus rectus abdominis', (SELECT id FROM muscle_group WHERE name = 'Bauch'));
